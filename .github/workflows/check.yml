@@ -1,0 +1,23 @@
+name: Update file and build project
+
+on:
+  workflow_dispatch: # This event allows manual triggering
+
+jobs:
+  update-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Update file
+        run: |
+          echo "Hello, world!" > README.md
+          git add README.md
+          git commit -m "Update README.md"
+
+      - name: Build project
+        run: npm run build
+
+      - name: Push changes
+        run: git push
