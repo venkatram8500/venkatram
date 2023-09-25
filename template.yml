@@ -1,0 +1,36 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: for testing github actions flow
+  title: for testing github actions
+  description: for testing github actions
+spec:
+  owner: backstage
+  type: service
+
+  parameters:
+    - title: Fill in some steps
+      required:
+        - name
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Unique name of the component
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        description:
+          title: Description
+          type: string
+          description: Description of the component
+
+
+  steps:
+    - id: workflow_dispatch
+      name: Create client API product
+      action: github:actions:dispatch
+      input:
+        repoUrl: 'github.com?repo=testing1&owner=volvo-cars'
+        workflowId: branch.yml
+        branchOrTagName: main
