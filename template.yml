@@ -1,9 +1,11 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: for testing github actions flow
+  name: backstage-systems
   title: for testing github actions
   description: for testing github actions
+  tags:
+    - actions
 spec:
   owner: backstage
   type: service
