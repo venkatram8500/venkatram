@@ -1,0 +1,16 @@
+name: Print Name
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-name:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Print Name
+      run: |
+        echo "Hello, venkat!"
